@@ -13,8 +13,25 @@ module Mongoid::Extensions
       end
 
       def get(value)
-        Phony.format(value.to_s, :format => :international, :spaces => :-)
+        Phone.new(value)
       end
     end
+
+    protected
+
+    # This class is used to set different Phony options in runtime because Phony doesn't allow creating a new object
+    class Phone
+       attr_accessor :spaces, :format, :value
+
+       def initialize (value = nil, format="international", spaces = "-")
+         @format = format
+         @spaces = spaces
+         @value = value
+       end
+
+       def to_s()
+         Phony.format(@value.to_s, :format => @format.to_sym, :spaces => @spaces.to_sym)
+       end
+     end
   end
 end
