@@ -1,12 +1,13 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
+require "mongoid/version"
 
 Gem::Specification.new do |s|
   s.name        = "mongoid_phone_number"
-  s.version     = '0.0.0'
+  s.version     = MongoidPhoneNumber::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Sarwagya"]
-  s.email       = ["TODO: sarwagya@sprout-technology.com"]
+  s.authors     = ["Sarwagya"]
+  s.email       = ["sarwagya@sprout-technology.com"]
   s.homepage = %q{http://github.com/sarwagya/mongoid_phone_number}
   s.summary     = %q{Adds a custom field type 'PhoneNumber' in mongoid}
   s.description = %q{Every non-numeric character is removed from the field and only the numeric value is stored.}
@@ -17,44 +18,12 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
 
+  s.add_dependency("mongoid", "~>2.0.0")
+  s.add_dependency("bson_ext", ">=0")
+  s.add_dependency("activesupport", "~>3.0.0")
+  s.add_dependency("phony", "~>1.4.1")
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 3
-
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<mongoid>, ["= 2.0.0.rc.7"])
-      s.add_runtime_dependency(%q<activesupport>, ["~> 3.0.0"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.5.0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<database_cleaner>, [">= 0"])
-      s.add_development_dependency(%q<bson_ext>, [">= 0"])
-      s.add_development_dependency(%q<fabrication>, ["~> 0.9.0"])
-      s.add_dependency(%q<phony>,["~>1.4.1"])
-    else
-      s.add_dependency(%q<mongoid>, ["= 2.0.0.rc.7"])
-      s.add_dependency(%q<activesupport>, ["~> 3.0.0"])
-      s.add_dependency(%q<rspec>, ["~> 2.5.0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<database_cleaner>, [">= 0"])
-      s.add_dependency(%q<bson_ext>, [">= 0"])
-      s.add_dependency(%q<fabrication>, ["~> 0.9.0"])
-      s.add_dependency(%q<phony>,["~>1.4.1"])
-    end
-  else
-    s.add_dependency(%q<mongoid>, ["= 2.0.0.rc.7"])
-    s.add_dependency(%q<activesupport>, ["~> 3.0.0"])
-    s.add_dependency(%q<rspec>, ["~> 2.5.0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-    s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<database_cleaner>, [">= 0"])
-    s.add_dependency(%q<bson_ext>, [">= 0"])
-    s.add_dependency(%q<fabrication>, ["~> 0.9.0"])
-    s.add_dependency(%q<phony>,["~>1.4.1"])
-  end
-
+  s.add_development_dependency("rspec", "~>2.5.0")
+  s.add_development_dependency("database_cleaner", ">= 0")
+  s.add_development_dependency("fabrication", "~>0.9.0")
 end
