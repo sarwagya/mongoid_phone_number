@@ -30,6 +30,7 @@ module Mongoid::Extensions
       end
 
       def to_s()
+        return "" if value.blank?
         Phony.format(@value.to_s, :format => @format.to_sym, :spaces => @spaces.to_sym)
       end
     end

@@ -32,5 +32,12 @@ describe Mongoid::PhoneNumber do
       phone.spaces = "."
       phone.to_s.should == "0809.123.1234"
     end
+
+    it "should handle nil data safely" do
+      person.home_phone = nil
+      person.save
+      phone = person.home_phone
+      phone.to_s.should == ""
+    end
   end
 end
