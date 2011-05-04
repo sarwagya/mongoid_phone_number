@@ -1,0 +1,9 @@
+= mongoid_phone_number
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2011 Sarwagya Pandey. See LICENSE.txt for
+further details.
+
