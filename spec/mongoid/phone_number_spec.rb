@@ -4,7 +4,7 @@ class Person
   include Mongoid::Document
 
   field :name
-  field :home_phone, :type => PhoneNumber
+  field :home_phone, :type => Mongoid::PhoneNumber
 end
 
 Fabricator(:person) do
@@ -12,7 +12,7 @@ Fabricator(:person) do
   home_phone "1 809 123 1234"
 end
 
-describe Mongoid::Extensions::PhoneNumber::Conversions do
+describe Mongoid::PhoneNumber do
   let(:person) { Fabricate :person }
 
   context "a single instance" do

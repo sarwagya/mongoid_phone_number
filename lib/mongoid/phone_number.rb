@@ -1,5 +1,7 @@
 require 'mongoid/conversions'
 
-class PhoneNumber
-  extend Mongoid::Extensions::PhoneNumber::Conversions
+module Mongoid
+  class PhoneNumber
+    extend Mongoid::Extensions::PhoneNumber::Conversions
+  end
 end
