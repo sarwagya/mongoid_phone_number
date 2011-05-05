@@ -10,12 +10,12 @@ gem install mongoid_phone_number
 
 === Define
 
-class User
-  include Mongoid::Document
+  class User
+    include Mongoid::Document
 
-  field :home_phone, :type => Mongoid::PhoneNumber
+    field :home_phone, :type => Mongoid::PhoneNumber
 
-end
+  end
 
 === Set
 
