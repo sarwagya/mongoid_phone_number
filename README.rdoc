@@ -1,6 +1,48 @@
 = mongoid_phone_number
 
-Description goes here.
+This gem creates a new field type 'Mongoid::PhoneNumber' for mongoid. It discards all non-numeric parts of the phone number while storing in database and prints out the well formatted phone number when retrieved.
+
+== Installation
+
+gem install mongoid_phone_number
+
+== Examples
+
+=== Define
+
+class User
+  include Mongoid::Document
+
+  field :home_phone, :type => Mongoid::PhoneNumber
+
+end
+
+=== Set
+
+  user.home_phone = '1 (809) (123) (1234)'
+
+  user.home_phone = '18091231234'
+
+  user.home_phone = '+1-809-123-1234'
+
+  ...
+
+=== Get
+
+  user.home_phone # '+1 809 123 1234'
+
+  hp = user.home_phone
+  hp.format = "national"
+  hp # "0809 123 1234"
+
+  hp.spaces = "-"
+  hp # '+1-809-123-1234'
+
+
+=== Other formatting options
+
+  For more formatting options, refer to Phony https://github.com/floere/phony
+
 
 == Copyright
 
