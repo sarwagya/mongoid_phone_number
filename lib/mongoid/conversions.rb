@@ -23,7 +23,7 @@ module Mongoid::Extensions
     class Phone
       attr_accessor :spaces, :format, :value
 
-      def initialize (value = nil, format="international", spaces = " ")
+      def initialize (value = nil, format="national", spaces = "-")
         @format = format
         @spaces = spaces
         @value = value
