@@ -1,4 +1,3 @@
-require 'phony'
 # encoding: utf-8
 module Mongoid::Extensions
   module PhoneNumber
@@ -6,32 +5,14 @@ module Mongoid::Extensions
       def set(value)
         return nil if value.blank?
         begin
-          Phony.normalize(value)
+          value.gsub!(/[^0-9]/,'')
         rescue
           value
         end
       end
 
       def get(value)
-        Phone.new(value)
-      end
-    end
-
-    protected
-
-    # This class is used to set different Phony options in runtime because Phony doesn't allow creating a new object
-    class Phone
-      attr_accessor :spaces, :format, :value
-
-      def initialize (value = nil, format="national", spaces = "-")
-        @format = format
-        @spaces = spaces
-        @value = value
-      end
-
-      def to_s()
-        return "" if value.blank?
-        Phony.format(@value.to_s, :format => @format.to_sym, :spaces => @spaces.to_sym)
+        value.to_s.split(/([0-9]{3})([0-9]{3})([0-9]{4})$/).delete_if(&:blank?).join("-")
       end
     end
   end
