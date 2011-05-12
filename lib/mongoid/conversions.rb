@@ -5,7 +5,7 @@ module Mongoid::Extensions
       def set(value)
         return nil if value.blank?
         begin
-          value.gsub!(/[^0-9]/,'')
+          value.gsub(/[^0-9]/,'')
         rescue
           value
         end
