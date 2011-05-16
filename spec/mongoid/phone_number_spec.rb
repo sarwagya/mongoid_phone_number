@@ -23,9 +23,9 @@ describe Mongoid::PhoneNumber do
   context "a single instance" do
 
     it "should store a normalized phone number value" do
-      person.attributes[:office_phone].should == '18091231234'
-      person.attributes[:home_phone].should == '1234567891'
-      person.attributes[:cell_phone].should == '1231231212'
+      person.attributes["office_phone"].should == '18091231234'
+      person.attributes["home_phone"].should == '1234567891'
+      person.attributes["cell_phone"].should == '1231231212'
     end
 
     it "should return a formatted phone number" do
