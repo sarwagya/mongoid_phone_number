@@ -1,4 +1,4 @@
-require 'mongoid/conversions'
+require 'mongoid_phone_number/conversions'
 
 module Mongoid
   class PhoneNumber
